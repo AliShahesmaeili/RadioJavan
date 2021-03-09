@@ -13,10 +13,16 @@ namespace RadioJavan.Classes.Helpers
 
         public static Uri GetLoginUri()
         {
-            if (!Uri.TryCreate(BaseRadioJavanUri, RadioJavanApiConstants.LOGIN, out var instaUri))
+            if (!Uri.TryCreate(BaseRadioJavanUri, RadioJavanApiConstants.LOGIN, out var uri))
                 throw new Exception("Cant create URI for user login");
-            return instaUri;
+            return uri;
         }
 
+        public static Uri GetForgotPasswordUri()
+        {
+            if (!Uri.TryCreate(BaseRadioJavanUri, RadioJavanApiConstants.FORGOT, out var uri))
+                throw new Exception("Cant create URI for Forgot Password");
+            return uri;
+        }
     }
 }

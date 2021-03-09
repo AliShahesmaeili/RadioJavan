@@ -7,15 +7,9 @@ using System.Threading.Tasks;
 
 namespace RadioJavan.Classes.Models
 {
-    public class RadioJavanLogin
+    public class RadioJavanForgotPassword
     {
         [JsonPropertyName("success")]
         public bool Success { get; set; }
-        [JsonPropertyName("redirect")]
-        public string Redirect { get; set; }
-        [JsonPropertyName("user_id")]
-        public string UserId { get; set; }
-        [JsonPropertyName("msg")]
-        public string Message { get; set; }
     }
 }

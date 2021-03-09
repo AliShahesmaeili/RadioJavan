@@ -22,5 +22,7 @@ namespace RadioJavan.API
         public const string USER_AGENT = "Radio Javan/3.7.7 (Windows_NT 10.0.19042) com.RadioJavan.RJ.desktop";
 
         public const string LOGIN = API_SUFFIX_V2 + "/login";
+        public const string FORGOT = API_SUFFIX_V2 + "/forgot";
+
     }
 }

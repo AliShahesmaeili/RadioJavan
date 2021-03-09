@@ -10,6 +10,6 @@ namespace RadioJavan.Interfaces
     public interface IRadioJavanApi
     {
         Task<IResult<RadioJavanLogin>> LoginAsync(string email, string password);
-
+        Task<IResult<RadioJavanForgotPassword>> ForgotPasswordAsync(string email);
     }
 }

@@ -33,20 +33,45 @@ namespace RadioJavan.API
         }
 
         #endregion Constructor
+
         public async Task<IResult<RadioJavanLogin>> LoginAsync(string email, string password)
         {
             try
             {
+                var data = new Dictionary<string, string>
+                {
+                    {"login_email", email},
+                    {"login_password", password},
+                };
                 var uri = UriCreator.GetLoginUri();
-                var request = _httpHelper.GetDefaultRequest(HttpMethod.Post, uri);
+                var request = _httpHelper.GetDefaultRequest(uri, data);
                 var response = await _httpRequestProcessor.SendAsync(request);
                 var json = await response.Content.ReadAsStreamAsync();
-                var jsonD = await response.Content.ReadAsStringAsync();
                 return Result.Success(await JsonSerializer.DeserializeAsync<RadioJavanLogin>(json));
             }
             catch (Exception exception)
             {
                 return Result.Fail<RadioJavanLogin>(exception);
+            }
+        }
+
+        public async Task<IResult<RadioJavanForgotPassword>> ForgotPasswordAsync(string email)
+        {
+            try
+            {
+                var data = new Dictionary<string, string>
+                {
+                    {"email", email}
+                };
+                var uri = UriCreator.GetForgotPasswordUri();
+                var request = _httpHelper.GetDefaultRequest(uri, data);
+                var response = await _httpRequestProcessor.SendAsync(request);
+                var json = await response.Content.ReadAsStreamAsync();
+                return Result.Success(await JsonSerializer.DeserializeAsync<RadioJavanForgotPassword>(json));
+            }
+            catch (Exception exception)
+            {
+                return Result.Fail<RadioJavanForgotPassword>(exception);
             }
         }
     }
