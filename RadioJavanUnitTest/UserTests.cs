@@ -18,7 +18,7 @@ namespace RadioJavanUnitTest
         public async void Should_Login(string email, string password)
         {
             var result = await radioJavanApi.LoginAsync(email, password);
-            Assert.True(result.Value.Success);
+            Assert.True(result.Succeeded);
         }
 
         [Theory]
@@ -26,7 +26,15 @@ namespace RadioJavanUnitTest
         public async void Should_ForgotPassword(string email)
         {
             var result = await radioJavanApi.ForgotPasswordAsync(email);
-            Assert.True(result.Value.Success);
+            Assert.True(result.Succeeded);
+        }
+
+        [Theory]
+        [InlineData("alish.gibson@gmail.com", "alish.gibson@gmail.com", "Ali", "Shahesmaeili", "DJGibson", "123456789")]
+        public async void Should_Register(string email, string emailConfirm, string firstname, string lastname, string username, string password)
+        {
+            var result = await radioJavanApi.RegisterAsync(email, emailConfirm, firstname, lastname, username, password);
+            Assert.True(result.Succeeded);
         }
     }
 }

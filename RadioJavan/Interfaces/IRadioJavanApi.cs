@@ -11,5 +11,6 @@ namespace RadioJavan.Interfaces
     {
         Task<IResult<RadioJavanLogin>> LoginAsync(string email, string password);
         Task<IResult<RadioJavanForgotPassword>> ForgotPasswordAsync(string email);
+        Task<IResult<RadioJavanRegister>> RegisterAsync(string email, string emailConfirm, string firstname, string lastname, string username, string password);
     }
 }

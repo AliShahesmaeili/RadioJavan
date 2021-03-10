@@ -23,6 +23,6 @@ namespace RadioJavan.API
 
         public const string LOGIN = API_SUFFIX_V2 + "/login";
         public const string FORGOT = API_SUFFIX_V2 + "/forgot";
-
+        public const string REGISTER = API_SUFFIX_V2 + "/signup_mobile";
     }
 }

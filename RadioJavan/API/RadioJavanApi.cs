@@ -74,5 +74,32 @@ namespace RadioJavan.API
                 return Result.Fail<RadioJavanForgotPassword>(exception);
             }
         }
+
+        public async Task<IResult<RadioJavanRegister>> RegisterAsync(string email, string emailConfirm, string firstname, string lastname, string username, string password)
+        {
+            try
+            {
+                var data = new Dictionary<string, string>
+                {
+                    {"email", email},
+                    {"email_confirm", emailConfirm},
+                    {"firstname", firstname},
+                    {"lastname", lastname},
+                    {"username", username},
+                    {"password", password},
+                };
+                var uri = UriCreator.GetRegisterUri();
+                var request = _httpHelper.GetDefaultRequest(uri, data);
+                var response = await _httpRequestProcessor.SendAsync(request);
+                var json = await response.Content.ReadAsStreamAsync();
+                var jsons = await response.Content.ReadAsStringAsync();
+
+                return Result.Success(await JsonSerializer.DeserializeAsync<RadioJavanRegister>(json));
+            }
+            catch (Exception exception)
+            {
+                return Result.Fail<RadioJavanRegister>(exception);
+            }
+        }
     }
 }
