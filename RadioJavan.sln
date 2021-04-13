@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadioJavan", "RadioJavan\RadioJavan.csproj", "{C18BA58F-1609-492F-8291-1B62939ECC72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadioJavan", "Csharp\RadioJavan\RadioJavan.csproj", "{C18BA58F-1609-492F-8291-1B62939ECC72}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadioJavanUnitTest", "RadioJavanUnitTest\RadioJavanUnitTest.csproj", "{F51FE776-5C8A-48CF-98F3-24326D3608FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadioJavanUnitTest", "Csharp\RadioJavanUnitTest\RadioJavanUnitTest.csproj", "{F51FE776-5C8A-48CF-98F3-24326D3608FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

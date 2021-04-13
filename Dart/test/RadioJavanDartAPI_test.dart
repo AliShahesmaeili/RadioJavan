@@ -2,18 +2,19 @@ import 'package:RadioJavanDartAPI/RadioJavanDartAPI.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('A group of tests', () {
-    Awesome awesome;
+  test('Should login', () async {
+    var login = await LoginAsync('usernadme', 'password');
+    expect(login.Succeeded, isTrue);
+  });
 
-    setUp(() {
-      awesome = Awesome();
-    });
+  test('Should recovery password', () async {
+    var forgot = await ForgotPasswordAsync('email');
+    expect(forgot.Succeeded, isTrue);
+  });
 
-    test('Should Login', () async {
-      var login = await LoginAsync('usernadme', 'password');
-      expect(login.Succeeded, isTrue);
-      print(login.Info.Message);
-      // print(login.Value.Message);
-    });
+  test('Should register', () async {
+    var register = await RegisterAsync(
+        'email', 'confEmail', 'Ali', 'Shahesmaeili', 'alish', '123456789');
+    expect(register.Succeeded, isTrue);
   });
 }
